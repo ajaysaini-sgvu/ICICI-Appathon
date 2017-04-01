@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<!--
   ~
   ~  Copyright 2017 Nagarro Agile. All rights reserved.
   ~
@@ -18,11 +18,12 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#009688</color>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <color name="gray">#808080</color>
-    <color name="white">#FFFFFF</color>
+
+    <dimen name="all_toolbar">20sp</dimen>
+    <dimen name="all_button_height">40dp</dimen>
 
 </resources>

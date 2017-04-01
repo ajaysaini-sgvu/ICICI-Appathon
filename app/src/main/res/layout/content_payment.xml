@@ -17,12 +17,9 @@
   ~
   -->
 
-<resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#00796B</color>
-    <color name="colorAccent">#009688</color>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <color name="gray">#808080</color>
-    <color name="white">#FFFFFF</color>
-
-</resources>
+</LinearLayout>
