@@ -20,6 +20,7 @@
 package com.icici.iciciappathon.dagger.collaborator;
 
 
+import com.icici.iciciappathon.checkout.Bill;
 import com.icici.iciciappathon.login.AccessToken;
 
 import java.util.List;
@@ -32,5 +33,12 @@ public interface RestApi {
 
     @GET("authenticate_client")
     Call<List<AccessToken>> authUser(@Query("client_id") String clientId, @Query("password") String password);
+
+    @GET("billpay")
+    Call<List<Bill>> billPay(@Query("client_id") String client_id,
+                             @Query("token") String token,
+                             @Query("custid") String custid,
+                             @Query("nickname") String nickname,
+                             @Query("amount") String amount);
 
 }

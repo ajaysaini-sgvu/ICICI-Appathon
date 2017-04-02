@@ -20,15 +20,71 @@
 package com.icici.iciciappathon.checkout;
 
 import android.os.Bundle;
+import android.view.View;
 
+import com.icici.iciciappathon.AppApplication;
 import com.icici.iciciappathon.R;
+import com.icici.iciciappathon.dagger.collaborator.RestApi;
+import com.icici.iciciappathon.databinding.ActivityPaymentBinding;
+import com.icici.iciciappathon.login.Token;
 import com.icici.iciciappathon.ui.BaseActivity;
 
-public class PaymentActivity extends BaseActivity {
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
+import static com.icici.iciciappathon.utils.LogUtils.LOGD;
+import static com.icici.iciciappathon.utils.LogUtils.makeLogTag;
+
+public class PaymentActivity extends BaseActivity implements View.OnClickListener {
+
+    @Inject
+    @Named("paymentRetrofit")
+    Retrofit retrofit;
+
+    private String TAG = makeLogTag(PaymentActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment);
+        ActivityPaymentBinding activityPaymentBinding = setContentView(this, R.layout.activity_payment);
+
+        // setting toolbar title
+        setToolbarText(getString(R.string.payment_screen_name));
+
+        ((AppApplication) getApplication()).getmNetComponent().inject(this);
+
+        activityPaymentBinding.contentPayment.placeOrder.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (isOnline()) {
+
+            Call<List<Bill>> accessTokenCall = retrofit.create(RestApi.class).billPay(Token.TOKEN.getmClientId(),
+                    Token.TOKEN.getmAccessToken(), "33335001", "e3", "1000");
+
+            showProgress(getString(R.string.hang_on_payment));
+
+            accessTokenCall.enqueue(new Callback<List<Bill>>() {
+                @Override
+                public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
+                    dismissProgress();
+                    showAlert(response.body().get(1).getSuccess());
+                }
+
+                @Override
+                public void onFailure(Call<List<Bill>> call, Throwable t) {
+                    dismissProgress();
+                    LOGD(TAG, t.getMessage());
+                }
+            });
+        }
     }
 }

@@ -21,14 +21,15 @@ package com.icici.iciciappathon.shopping;
 
 import android.Manifest;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.util.SparseArray;
 import android.view.TextureView;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.Detector;
@@ -62,12 +63,14 @@ public class ScanBarcodeActivity extends BaseActivity {
 
     private int nothing;
 
+    private FrameLayout frameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityScanBarcodeBinding activityScanBarcodeBinding = setContentView(this, R.layout.activity_scan_barcode);
 
-        textureView = activityScanBarcodeBinding.textureView;
+        frameLayout = activityScanBarcodeBinding.textureFrameLayout;
 
         barcodeDetector = new BarcodeDetector.Builder(this).build();
 
@@ -81,11 +84,11 @@ public class ScanBarcodeActivity extends BaseActivity {
         // NOTE: delegate the permission handling to generated method
         ScanBarcodeActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
 
-        if (permissions[0].equals(Manifest.permission.CAMERA)) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                initializeCamera();
-            }
-        }
+//        if (permissions[0].equals(Manifest.permission.CAMERA)) {
+//            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                initializeCamera();
+//            }
+//        }
     }
 
     @NeedsPermission(Manifest.permission.CAMERA)
@@ -94,6 +97,11 @@ public class ScanBarcodeActivity extends BaseActivity {
     }
 
     void initializeCamera() {
+
+        TextureView textureView = new TextureView(this);
+        textureView.setLayoutParams(new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT));
+        frameLayout.addView(textureView);
+
         textureView.setSurfaceTextureListener(new TextureView.SurfaceTextureListener() {
             @Override
             public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
@@ -120,7 +128,7 @@ public class ScanBarcodeActivity extends BaseActivity {
 
             @Override
             public void onSurfaceTextureSizeChanged(SurfaceTexture surface, int width, int height) {
-
+                LogUtils.LOGD(TAG, "Hello");
             }
 
             @Override
@@ -138,7 +146,7 @@ public class ScanBarcodeActivity extends BaseActivity {
             public void onSurfaceTextureUpdated(SurfaceTexture surface) {
                 ++nothing;
 
-                if (nothing == 50) {
+                if (nothing == 20) {
                     promptCheckOut(ScanBarcodeActivity.this, getString(R.string.scan_barcode_ask_to_check_out));
                 }
             }

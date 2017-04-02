@@ -25,6 +25,7 @@ public enum Token {
     TOKEN("token");
 
     String mAccessToken;
+    String mClientId;
 
     Token(String accessToken) {
         mAccessToken = accessToken;
@@ -36,6 +37,14 @@ public enum Token {
 
     public void setmAccessToken(String accessToken) {
         this.mAccessToken = accessToken;
+    }
+
+    public String getmClientId() {
+        return mClientId;
+    }
+
+    public void setmClientId(String clientId) {
+        this.mClientId = clientId;
     }
 
 }

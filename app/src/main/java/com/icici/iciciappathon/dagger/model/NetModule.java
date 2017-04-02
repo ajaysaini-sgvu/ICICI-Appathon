@@ -27,6 +27,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -38,12 +39,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
 public class NetModule {
-
-    private String mBaseUrl;
-
-    public NetModule(String baseUrl) {
-        this.mBaseUrl = baseUrl;
-    }
 
     @Provides
     @Singleton
@@ -80,12 +75,27 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit(Gson gson, OkHttpClient okHttpClient) {
+    @Named("authRetrofit")
+    Retrofit provideAuthRetrofit(Gson gson, OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(mBaseUrl)
+                .baseUrl("https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/")
                 .client(okHttpClient)
                 .build();
         return retrofit;
     }
+
+    @Provides
+    @Singleton
+    @Named("paymentRetrofit")
+    Retrofit providePaymentRetrofit(Gson gson, OkHttpClient okHttpClient) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl("https://biller.mybluemix.net/biller/icicibank/")
+                .client(okHttpClient)
+                .build();
+        return retrofit;
+    }
+
+
 }

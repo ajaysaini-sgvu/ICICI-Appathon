@@ -43,4 +43,13 @@
     <string name="button_deny">Deny</string>
     <string name="scan_barcode_ask_to_check_out">Great! Please proceed to check out.</string>
 
+    <!-- string related to payment gateway -->
+    <string name="payment_screen_name">CHECK OUT</string>
+    <string name="payment_item_name">Bvlgari Aqua Pour Homme Eau De Toilette</string>
+    <string name="payment_size_quantity">Size: 100 ml Qty: 1</string>
+    <string name="payment_sold_by">Sold by: Unistand</string>
+    <string name="payment_amount">Rs. 1100 Rs <strike> Rs. 1200 </strike> (10% OFF)</string>
+    <string name="payment_place_order">PLACE ORDER</string>
+    <string name="hang_on_payment">Hang On! Payment is in process.</string>
+
 </resources>

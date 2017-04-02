@@ -17,22 +17,34 @@
  *
  */
 
-package com.icici.iciciappathon.dagger.component;
+package com.icici.iciciappathon.checkout;
 
-import com.icici.iciciappathon.checkout.PaymentActivity;
-import com.icici.iciciappathon.dagger.model.AppModule;
-import com.icici.iciciappathon.dagger.model.NetModule;
-import com.icici.iciciappathon.dagger.model.Validator;
-import com.icici.iciciappathon.login.AuthenticationActivity;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-import javax.inject.Singleton;
+public class Bill {
 
-import dagger.Component;
+    @SerializedName("code")
+    @Expose
+    private Integer code;
+    @SerializedName("Success")
+    @Expose
+    private String success;
 
-@Singleton
-@Component(modules = {AppModule.class, NetModule.class, Validator.class})
-public interface NetComponent {
-    void inject(AuthenticationActivity authenticationActivity);
+    public Integer getCode() {
+        return code;
+    }
 
-    void inject(PaymentActivity paymentActivity);
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+
 }

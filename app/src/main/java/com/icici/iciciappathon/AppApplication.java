@@ -24,7 +24,6 @@ import android.app.Application;
 import com.icici.iciciappathon.dagger.component.DaggerNetComponent;
 import com.icici.iciciappathon.dagger.component.NetComponent;
 import com.icici.iciciappathon.dagger.model.AppModule;
-import com.icici.iciciappathon.dagger.model.NetModule;
 
 
 /**
@@ -40,7 +39,6 @@ public class AppApplication extends Application {
 
         mNetComponent = DaggerNetComponent.builder()
                 .appModule(new AppModule(this))
-                .netModule(new NetModule("https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/"))
                 .build();
     }
 

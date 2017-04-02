@@ -41,6 +41,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,8 +61,11 @@ public class AuthenticationActivity extends BaseActivity implements View.OnClick
 
     @Inject
     Validator validator;
+
     @Inject
+    @Named("authRetrofit")
     Retrofit retrofit;
+
     @NotEmpty
     private TextInputLayout client_id_input_layout;
     @NotEmpty
@@ -95,7 +99,7 @@ public class AuthenticationActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if (isOnline()) {
-            String clientId = client_id_input_layout.getEditText().getText().toString();
+            final String clientId = client_id_input_layout.getEditText().getText().toString();
             final String accessCode = access_code_input_layout.getEditText().getText().toString();
 
             Call<List<AccessToken>> accessTokenCall = retrofit.create(RestApi.class).authUser(clientId, accessCode);
@@ -107,6 +111,7 @@ public class AuthenticationActivity extends BaseActivity implements View.OnClick
                     dismissProgress();
                     String accessToken = response.body().get(0).getToken();
                     Token.TOKEN.setmAccessToken(accessToken);
+                    Token.TOKEN.setmClientId(clientId);
 
                     Intent intent = new Intent(AuthenticationActivity.this, GetStartedActivity.class);
                     startActivity(intent);
