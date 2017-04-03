@@ -15,9 +15,7 @@
  *  limitations under the License.
  *
  *
- */
-
-package com.icici.iciciappathon.utils;
+ */package com.icici.iciciappathon.utils;
 
 
 public interface ICICIAppathonServiceUrl {

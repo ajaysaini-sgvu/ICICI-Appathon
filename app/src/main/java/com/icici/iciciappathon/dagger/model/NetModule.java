@@ -15,9 +15,7 @@
  *  limitations under the License.
  *
  *
- */
-
-package com.icici.iciciappathon.dagger.model;
+ */package com.icici.iciciappathon.dagger.model;
 
 import android.app.Application;
 import android.content.SharedPreferences;

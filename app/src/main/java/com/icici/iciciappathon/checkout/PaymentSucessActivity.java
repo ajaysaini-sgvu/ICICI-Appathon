@@ -15,9 +15,7 @@
  *  limitations under the License.
  *
  *
- */
-
-package com.icici.iciciappathon.checkout;
+ */package com.icici.iciciappathon.checkout;
 
 import android.os.Build;
 import android.os.Bundle;
