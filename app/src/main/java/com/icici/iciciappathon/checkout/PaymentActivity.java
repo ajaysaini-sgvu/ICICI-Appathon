@@ -19,6 +19,7 @@
 
 package com.icici.iciciappathon.checkout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -61,6 +62,7 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
         ((AppApplication) getApplication()).getmNetComponent().inject(this);
 
         activityPaymentBinding.contentPayment.placeOrder.setOnClickListener(this);
+
     }
 
     @Override
@@ -76,7 +78,8 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
                 @Override
                 public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
                     dismissProgress();
-                    showAlert(response.body().get(1).getSuccess());
+                    startActivity(new Intent(PaymentActivity.this, PaymentSucessActivity.class));
+                    //showAlert(response.body().get(1).getSuccess());
                 }
 
                 @Override

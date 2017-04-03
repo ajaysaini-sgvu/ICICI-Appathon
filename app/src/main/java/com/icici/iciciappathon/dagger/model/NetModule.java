@@ -37,6 +37,9 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.icici.iciciappathon.utils.ICICIAppathonServiceUrl.LOGIN_SERVICE;
+import static com.icici.iciciappathon.utils.ICICIAppathonServiceUrl.PAYMENT_SERVICE;
+
 @Module
 public class NetModule {
 
@@ -79,7 +82,7 @@ public class NetModule {
     Retrofit provideAuthRetrofit(Gson gson, OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/")
+                .baseUrl(PAYMENT_SERVICE)
                 .client(okHttpClient)
                 .build();
         return retrofit;
@@ -91,7 +94,7 @@ public class NetModule {
     Retrofit providePaymentRetrofit(Gson gson, OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl("https://biller.mybluemix.net/biller/icicibank/")
+                .baseUrl(LOGIN_SERVICE)
                 .client(okHttpClient)
                 .build();
         return retrofit;

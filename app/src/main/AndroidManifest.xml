@@ -16,7 +16,6 @@
   ~
   ~
   -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.icici.iciciappathon">
 
@@ -55,6 +54,7 @@
         <activity
             android:name=".checkout.PaymentActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".checkout.PaymentSucessActivity"></activity>
     </application>
 
 </manifest>
