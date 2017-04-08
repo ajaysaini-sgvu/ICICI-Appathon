@@ -24,6 +24,7 @@ import android.view.View;
 import com.icici.iciciappathon.AppApplication;
 import com.icici.iciciappathon.R;
 import com.icici.iciciappathon.dagger.collaborator.RestApi;
+import com.icici.iciciappathon.dashboard.DashboardActivity;
 import com.icici.iciciappathon.databinding.ActivityPaymentBinding;
 import com.icici.iciciappathon.login.Token;
 import com.icici.iciciappathon.ui.BaseActivity;
@@ -76,8 +77,8 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
                 @Override
                 public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
                     dismissProgress();
-                    startActivity(new Intent(PaymentActivity.this, PaymentSucessActivity.class));
-                    //showAlert(response.body().get(1).getSuccess());
+                    Intent intent = new Intent(PaymentActivity.this, DashboardActivity.class);
+                    showAlertAndStartActivity(PaymentActivity.this, response.body().get(1).getSuccess(), intent);
                 }
 
                 @Override

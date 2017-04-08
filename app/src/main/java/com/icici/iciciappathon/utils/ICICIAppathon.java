@@ -15,10 +15,12 @@
  *  limitations under the License.
  *
  *
- */package com.icici.iciciappathon.utils;
+ */
+
+package com.icici.iciciappathon.utils;
 
 
-public interface ICICIAppathonServiceUrl {
-    String LOGIN_SERVICE = "https://biller.mybluemix.net/biller/icicibank/";
-    String PAYMENT_SERVICE = "https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/";
+public interface ICICIAppathon {
+    String ACCESSTOKEN = "ACCESSTOKEN";
+    String CLIENTID = "CLIENTID";
 }

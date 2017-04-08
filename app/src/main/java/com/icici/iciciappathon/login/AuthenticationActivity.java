@@ -21,7 +21,9 @@
 package com.icici.iciciappathon.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -31,9 +33,11 @@ import android.view.View;
 import com.icici.iciciappathon.AppApplication;
 import com.icici.iciciappathon.R;
 import com.icici.iciciappathon.dagger.collaborator.RestApi;
+import com.icici.iciciappathon.dashboard.DashboardActivity;
 import com.icici.iciciappathon.databinding.ActivityAuthenticationBinding;
 import com.icici.iciciappathon.ui.BaseActivity;
 import com.icici.iciciappathon.ui.GetStartedActivity;
+import com.icici.iciciappathon.utils.ICICIAppathon;
 import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
@@ -78,6 +82,19 @@ public class AuthenticationActivity extends BaseActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        if (sharedPreferences.getString(ICICIAppathon.ACCESSTOKEN, null) != null) {
+            Token.TOKEN.setmAccessToken(sharedPreferences.getString(ICICIAppathon.ACCESSTOKEN, ""));
+            Token.TOKEN.setmClientId(sharedPreferences.getString(ICICIAppathon.CLIENTID, ""));
+            finish();
+
+            Intent intent = new Intent(AuthenticationActivity.this, DashboardActivity.class);
+            startActivity(intent);
+        }
+
+
         ActivityAuthenticationBinding activityAuthenticationBinding = setContentView(this, R.layout.activity_authentication);
 
         // setting toolbar title
@@ -112,6 +129,12 @@ public class AuthenticationActivity extends BaseActivity implements View.OnClick
                     String accessToken = response.body().get(0).getToken();
                     Token.TOKEN.setmAccessToken(accessToken);
                     Token.TOKEN.setmClientId(clientId);
+
+                    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(ICICIAppathon.ACCESSTOKEN, accessToken);
+                    editor.putString(ICICIAppathon.CLIENTID, clientId);
+                    editor.apply();
 
                     Intent intent = new Intent(AuthenticationActivity.this, GetStartedActivity.class);
                     startActivity(intent);

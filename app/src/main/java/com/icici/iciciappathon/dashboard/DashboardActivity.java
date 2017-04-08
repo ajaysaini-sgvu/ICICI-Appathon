@@ -15,10 +15,20 @@
  *  limitations under the License.
  *
  *
- */package com.icici.iciciappathon.utils;
+ */
 
+package com.icici.iciciappathon.dashboard;
 
-public interface ICICIAppathonServiceUrl {
-    String LOGIN_SERVICE = "https://biller.mybluemix.net/biller/icicibank/";
-    String PAYMENT_SERVICE = "https://corporateapiprojectwar.mybluemix.net/corporate_banking/mybank/";
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.icici.iciciappathon.R;
+
+public class DashboardActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_dashboard);
+    }
 }

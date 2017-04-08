@@ -15,21 +15,12 @@
   ~  limitations under the License.
   ~
   ~
-  --><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+  -->
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sky_blue"
-    tools:context="com.icici.iciciappathon.checkout.PaymentSucessActivity">
+    tools:context="com.icici.iciciappathon.dashboard.DashboardActivity">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        app:lottie_autoPlay="true"
-        app:lottie_fileName="progress_bar.json"
-        app:lottie_loop="true" />
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

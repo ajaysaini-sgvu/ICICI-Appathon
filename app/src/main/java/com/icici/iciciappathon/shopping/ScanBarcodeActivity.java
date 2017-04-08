@@ -21,6 +21,7 @@ package com.icici.iciciappathon.shopping;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.icici.iciciappathon.R;
+import com.icici.iciciappathon.checkout.PaymentActivity;
 import com.icici.iciciappathon.databinding.ActivityScanBarcodeBinding;
 import com.icici.iciciappathon.ui.BaseActivity;
 import com.icici.iciciappathon.utils.LogUtils;
@@ -147,7 +149,8 @@ public class ScanBarcodeActivity extends BaseActivity {
                 ++nothing;
 
                 if (nothing == 20) {
-                    promptCheckOut(ScanBarcodeActivity.this, getString(R.string.scan_barcode_ask_to_check_out));
+                    Intent intent = new Intent(ScanBarcodeActivity.this, PaymentActivity.class);
+                    showAlertAndStartActivity(ScanBarcodeActivity.this, getString(R.string.scan_barcode_ask_to_check_out), intent);
                 }
             }
         });

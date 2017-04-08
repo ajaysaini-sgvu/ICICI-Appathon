@@ -38,7 +38,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.icici.iciciappathon.R;
-import com.icici.iciciappathon.checkout.PaymentActivity;
 
 /**
  * This base activity that handles common functionality in the app. This includes the
@@ -128,7 +127,7 @@ public class BaseActivity extends AppCompatActivity {
      *
      * @param msg the text to show
      */
-    protected void promptCheckOut(final Context context, String msg) {
+    protected void showAlertAndStartActivity(final Context context, String msg, final Intent intent) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.Theme_AppCompat_Light_Dialog_Alert));
         builder.setTitle(getResources().getString(R.string.app_name))
                 .setMessage(msg)
@@ -140,7 +139,6 @@ public class BaseActivity extends AppCompatActivity {
                         dialogInterface.dismiss();
 
                         // start check out activity for payment
-                        Intent intent = new Intent(context, PaymentActivity.class);
                         startActivity(intent);
                         ((Activity) context).finish();
 
