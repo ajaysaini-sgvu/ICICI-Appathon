@@ -24,10 +24,6 @@ Tech Stack & Architecture Design : Java, Android, Google Mobile Vision, Firebase
 
 ICICI Bank API : Authentication, Bill Payment
 
-### Version: 1.0.0
-
-Stable release
-
 ## Licence
 
     Copyright 2017 Ajay Saini (TGMCians)
