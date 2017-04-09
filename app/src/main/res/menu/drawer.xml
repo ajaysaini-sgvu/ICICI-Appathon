@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~
   ~  Copyright 2017 Nagarro Agile. All rights reserved.
   ~
@@ -17,18 +17,14 @@
   ~
   -->
 
-<resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
 
-    <!-- overriding value to remove space between navigation icon and text -->
-    <dimen name="design_navigation_icon_padding">8dp</dimen>
+        <item
+            android:id="@+id/history"
+            android:checked="false"
+            android:icon="@mipmap/ic_history_black"
+            android:title="@string/navigation_view_payment_history" />
 
-    <!-- reduce-space-between-menu-groups-inside-navigation-drawer -->
-    <dimen name="design_navigation_separator_vertical_padding">0dp</dimen>
-
-    <dimen name="all_toolbar">20sp</dimen>
-    <dimen name="all_button_height">40dp</dimen>
-
-</resources>
+    </group>
+</menu>

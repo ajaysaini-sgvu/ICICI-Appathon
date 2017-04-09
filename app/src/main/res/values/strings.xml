@@ -29,6 +29,7 @@
 
     <!-- global messages -->
     <string name="network_error">Check your network connection.</string>
+    <string name="user_name">Ajay Saini</string>
 
     <!-- strings related to get started screen -->
     <string name="get_started_screen_name">WELCOME TO SCAN, PAY and GO!</string>
@@ -51,5 +52,13 @@
     <string name="payment_amount">Rs. 1100 Rs <strike> Rs. 1200 </strike> (10% OFF)</string>
     <string name="payment_place_order">PLACE ORDER</string>
     <string name="hang_on_payment">Hang On! Payment is in process.</string>
+
+    <!-- strings related to home screen -->
+    <string name="home_screen_name">HOME</string>
+    <string name="home_screen_open_drawer">Open</string>
+    <string name="home_screen_close_drawer">Close</string>
+
+    <!-- strings related to navigation view -->
+    <string name="navigation_view_payment_history">Payment History</string>
 
 </resources>

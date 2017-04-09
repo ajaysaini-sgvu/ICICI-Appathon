@@ -19,45 +19,50 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/get_started_next_step"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-
-        <android.support.constraint.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/second_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.9" />
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/get_started_next_step"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
 
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/get_started_button"
-            android:layout_width="363dp"
-            android:layout_height="@dimen/all_button_height"
-            android:text="@string/get_started"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/second_guideline" />
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.4" />
 
-    </android.support.constraint.ConstraintLayout>
+            <android.support.constraint.Guideline
+                android:id="@+id/second_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.9" />
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/get_started_button"
+                android:layout_width="363dp"
+                android:layout_height="@dimen/all_button_height"
+                android:text="@string/get_started"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/second_guideline" />
+
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 </layout>
