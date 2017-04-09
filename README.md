@@ -14,9 +14,13 @@ C) Offering best deals to customers, cashback on check out from mobile app.
 
 The majority would be happy for retailers to send them a text/e-mail with promotional offers whilst they’re in-  store using the free Wi-Fi service, which opens up new communication methods for retailers.
 
+### How it works
+
+Customer have to install application on their android devices. Now go to store for shopping, where you have to scan barcode which is placed on each items at retail stores. Once it is successfull then it will show product description, reviews and compare prices. Now simply proceed and add item in your cart. Pay with wallets and different kind of payment methods through mobile app then go. This is Scan, Pay and Go methodology.
+
 ### Technology Stack
 
-Tech Stack : Android, Google Mobile Vision, Firebase
+Tech Stack & Architecture Design : Java, Android, Google Mobile Vision, Firebase, MVVM, Dagger2, Retrofit
 
 ICICI Bank API : Authentication, Bill Payment
 
