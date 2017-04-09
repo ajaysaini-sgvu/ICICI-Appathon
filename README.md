@@ -16,7 +16,7 @@ The majority would be happy for retailers to send them a text/e-mail with promot
 
 ### How it works
 
-Customer have to install application on their android devices. Now go to store for shopping, where you have to scan barcode which is placed on each items at retail stores. Once it is successfull then it will show product description, reviews and compare prices. Now simply proceed and add item in your cart. Pay with wallets and different kind of payment methods through mobile app then go. This is Scan, Pay and Go methodology.
+Customer have to install application on their android devices. Now go to store for shopping, where you have to scan barcode which is placed on each items at retail stores. Once it is successfull then it will show product description, reviews and compare prices. Now simply proceed and add item in your cart and pay with wallets and different kind of payment methods through mobile app then go.
 
 ### Technology Stack
 
