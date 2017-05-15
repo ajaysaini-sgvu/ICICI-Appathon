@@ -19,19 +19,12 @@
 
 package com.icici.iciciappathon.dagger.component;
 
-import com.icici.iciciappathon.checkout.PaymentActivity;
-import com.icici.iciciappathon.dagger.model.AppModule;
-import com.icici.iciciappathon.dagger.model.NetModule;
 import com.icici.iciciappathon.dagger.model.ValidatorModule;
+import com.icici.iciciappathon.login.AuthenticationActivity;
 
-import javax.inject.Singleton;
+import dagger.Subcomponent;
 
-import dagger.Component;
-
-@Singleton
-@Component(modules = {AppModule.class, NetModule.class})
-public interface NetComponent {
-    void inject(PaymentActivity paymentActivity);
-
-    ValidationComponent validatorComponent(ValidatorModule validatorModule);
+@Subcomponent(modules = {ValidatorModule.class})
+public interface ValidationComponent {
+    void inject(AuthenticationActivity activity);
 }
