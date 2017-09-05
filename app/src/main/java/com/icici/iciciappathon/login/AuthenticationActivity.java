@@ -33,7 +33,7 @@ import android.widget.EditText;
 import com.icici.iciciappathon.AppApplication;
 import com.icici.iciciappathon.R;
 import com.icici.iciciappathon.dagger.collaborator.RestApi;
-import com.icici.iciciappathon.dagger.model.ValidatorModule;
+import com.icici.iciciappathon.dagger.module.ValidatorModule;
 import com.icici.iciciappathon.dashboard.DashboardActivity;
 import com.icici.iciciappathon.databinding.ActivityAuthenticationBinding;
 import com.icici.iciciappathon.ui.BaseActivity;

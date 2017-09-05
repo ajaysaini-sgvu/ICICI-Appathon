@@ -15,7 +15,8 @@
  *  limitations under the License.
  *
  *
- */package com.icici.iciciappathon.checkout;
+ */
+package com.icici.iciciappathon.checkout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -76,9 +77,13 @@ public class PaymentActivity extends BaseActivity implements View.OnClickListene
             accessTokenCall.enqueue(new Callback<List<Bill>>() {
                 @Override
                 public void onResponse(Call<List<Bill>> call, Response<List<Bill>> response) {
-                    dismissProgress();
-                    Intent intent = new Intent(PaymentActivity.this, DashboardActivity.class);
-                    showAlertAndStartActivity(PaymentActivity.this, response.body().get(1).getSuccess(), intent);
+                    try {
+                        dismissProgress();
+                        Intent intent = new Intent(PaymentActivity.this, DashboardActivity.class);
+                        showAlertAndStartActivity(PaymentActivity.this, response.body().get(1).getSuccess(), intent);
+                    } catch (Exception e) {
+                        LOGD(TAG, e.getMessage());
+                    }
                 }
 
                 @Override

@@ -17,29 +17,27 @@
  *
  */
 
-package com.icici.iciciappathon.dagger.model;
+package com.icici.iciciappathon.dagger.module;
 
-import android.app.Activity;
+import android.app.Application;
 
-import com.mobsandgeeks.saripaar.Validator;
-
-import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class ValidatorModule {
+public class AppModule {
 
-    private final Activity activity;
+    private Application application;
 
-    @Inject
-    public ValidatorModule(Activity activity) {
-        this.activity = activity;
+    public AppModule(Application application) {
+        this.application = application;
     }
 
     @Provides
-    Validator providesValidator() {
-        return new com.mobsandgeeks.saripaar.Validator(activity);
+    @Singleton
+    Application providesApplication() {
+        return application;
     }
 }

@@ -20,9 +20,9 @@
 package com.icici.iciciappathon.dagger.component;
 
 import com.icici.iciciappathon.checkout.PaymentActivity;
-import com.icici.iciciappathon.dagger.model.AppModule;
-import com.icici.iciciappathon.dagger.model.NetModule;
-import com.icici.iciciappathon.dagger.model.ValidatorModule;
+import com.icici.iciciappathon.dagger.module.AppModule;
+import com.icici.iciciappathon.dagger.module.NetModule;
+import com.icici.iciciappathon.dagger.module.ValidatorModule;
 
 import javax.inject.Singleton;
 
@@ -32,6 +32,8 @@ import dagger.Component;
 @Component(modules = {AppModule.class, NetModule.class})
 public interface NetComponent {
     void inject(PaymentActivity paymentActivity);
+
+    void hello(PaymentActivity paymentActivity);
 
     ValidationComponent validatorComponent(ValidatorModule validatorModule);
 }

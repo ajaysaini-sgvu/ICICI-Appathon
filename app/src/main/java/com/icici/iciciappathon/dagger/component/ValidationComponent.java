@@ -19,7 +19,7 @@
 
 package com.icici.iciciappathon.dagger.component;
 
-import com.icici.iciciappathon.dagger.model.ValidatorModule;
+import com.icici.iciciappathon.dagger.module.ValidatorModule;
 import com.icici.iciciappathon.login.AuthenticationActivity;
 
 import dagger.Subcomponent;

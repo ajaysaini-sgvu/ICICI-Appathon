@@ -23,7 +23,7 @@ import android.app.Application;
 
 import com.icici.iciciappathon.dagger.component.DaggerNetComponent;
 import com.icici.iciciappathon.dagger.component.NetComponent;
-import com.icici.iciciappathon.dagger.model.AppModule;
+import com.icici.iciciappathon.dagger.module.AppModule;
 
 
 /**
